@@ -1,0 +1,73 @@
+
+### Obtener un listado de cursos
+GET http://localhost:8080/api/v1/cursos
+
+
+### Response:
+    [
+{
+    "id": 1,
+    "nombre": "Java desde Cero",
+    "descripcion": "Curso introductorio a la programación en Java"
+  },
+  {
+    "id": 2,
+    "nombre": "Spring Boot Avanzado",
+    "descripcion": "Desarrollo de API REST con Spring Boot y JPA"
+}
+]
+
+### Obtener un solo curso por ID
+GET http://localhost:8080/api/v1/cursos/1
+
+
+### POST: Crear un nuevo curso
+POST http://localhost:8080/api/v1/cursos
+Content-Type: application/json
+
+{
+"nombre": "Curso de Python",
+"descripcion": "Aprende Python desde cero con ejemplos prácticos.",
+"fecha_de_inicio": "2024-05-01T08:00:00",
+"fecha_de_fin": "2024-06-01T08:00:00"
+}
+
+### PUT: Modificar curso por su ID
+PUT http://localhost:8080/api/v1/cursos/1
+Content-Type: application/json
+
+{
+  "nombre": "Curso cambiado de nombre",
+  "descripcion": "Marcos marcos",
+  "fecha_de_inicio": "2024-05-01T08:00:00",
+  "fecha_de_fin": "2024-06-01T08:00:00"
+}
+
+### Eliminar un solo curso por ID
+DELETE http://localhost:8080/api/v1/cursos/1
+
+
+
+
+
+
+
+
+
+### Buena practica de response:
+DTO Successfull response y Unsuccesfull response
+
+{
+  "status" : 200,
+  "descripcion": "Todo salio bien",
+  "timeStamp": "now()",
+  "response": {
+                "nombre": "Curso de Python",
+                "descripcion": "Aprende Python desde cero con ejemplos prácticos.",
+                "fecha_de_inicio": "2024-05-01T08:00:00",
+                "fecha_de_fin": "2024-06-01T08:00:00"
+              }
+
+
+}
+

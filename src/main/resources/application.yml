@@ -1,0 +1,21 @@
+servidor:
+  puerto: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/bd_cursos_online
+    username: usuario_cursos
+    password: clave_cursos
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database: postgresql
+    generate-ddl: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
