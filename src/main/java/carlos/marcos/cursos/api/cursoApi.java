@@ -2,6 +2,8 @@ package carlos.marcos.cursos.api;
 
 
 
+import carlos.marcos.cursos.dto.res.MensajeRespuestaDTO;
+import carlos.marcos.cursos.dto.req.crearCursoConDTO;
 import carlos.marcos.cursos.entity.cursoEntity;
 import carlos.marcos.cursos.services.cursoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,8 +47,12 @@ public class cursoApi {
     //api/v1/cursos/contraseña1234
 
     @PostMapping
-    public ResponseEntity<cursoEntity> crearCurso(@RequestBody cursoEntity curso) {
-        return ResponseEntity.ok(cursoService.crearCurso(curso));
+    @Operation(summary = "Crear curso con mensaje de respuesta DTO ")
+    //Aqui RepsonseEntity con el DTO para respuesta
+    //RequestBody con crear curso DTO pasando solamente 2 parametros, nombre y descripcion
+    public ResponseEntity<MensajeRespuestaDTO> crearCurso(@RequestBody crearCursoConDTO curso) {
+        MensajeRespuestaDTO respuesta = cursoService.crearCurso(curso);
+        return ResponseEntity.ok(respuesta);
     }
 
     @PutMapping("/{id}")

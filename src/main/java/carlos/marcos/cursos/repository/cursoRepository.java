@@ -7,5 +7,4 @@ public interface cursoRepository extends CrudRepository<cursoEntity, Long> {
 
 
 
-
 }

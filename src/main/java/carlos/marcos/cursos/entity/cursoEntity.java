@@ -3,6 +3,8 @@ package carlos.marcos.cursos.entity;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Component
 @Entity(name="curso")
 @Table(name="curso")
@@ -25,6 +27,18 @@ public class cursoEntity {
 
     @Column(name="fecha_de_fin", nullable=false, updatable=false)
     private LocalDateTime fecha_de_fin;
+
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<inscripcionEntity> inscripciones;
+
+    public List<inscripcionEntity> getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(List<inscripcionEntity> inscripciones) {
+        this.inscripciones = inscripciones;
+    }
+
 
     /* ALT+ INSERT   */
 
