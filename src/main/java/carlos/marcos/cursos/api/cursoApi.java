@@ -55,11 +55,12 @@ public class cursoApi {
         return ResponseEntity.ok(respuesta);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<cursoEntity> modificarCurso(@PathVariable Long id, @RequestBody cursoEntity cursoActualizando) {
-        Optional<cursoEntity> curso = cursoService.actualizarCurso(id, cursoActualizando);
-        return curso.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
+//    @PutMapping("/{id}")
+//    @Operation(summary = "Actualizar curso con DTO")
+//    public ResponseEntity<MensajeRespuestaDTO> modificarCurso(@PathVariable Long id, @RequestBody crearCursoConDTO cursoDTO) {
+//        Optional<MensajeRespuestaDTO> respuesta = cursoService.actualizarCurso(id, cursoDTO);
+//        return respuesta.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+//    }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> eliminarCurso(@PathVariable Long id) {

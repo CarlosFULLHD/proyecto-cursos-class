@@ -26,8 +26,8 @@ POST http://localhost:8080/api/v1/cursos
 Content-Type: application/json
 
 {
-"nombre": "Curso de Python 1",
-"descripcion": "Aprende Python desde cero con ejemplos prácticos."
+"nombre": "Curso de Python 101",
+"descripcion": "Aprende Python desde cero con ejemplos prácticos junto a Marcos y Carlos."
 }
 
 ### PUT: Modificar curso por su ID
@@ -40,6 +40,18 @@ Content-Type: application/json
   "fecha_de_inicio": "2024-05-01T08:00:00",
   "fecha_de_fin": "2024-06-01T08:00:00"
 }
+
+
+### PUT: Actualizar curso con DTO
+PUT http://localhost:8080/api/v1/cursos/1
+Content-Type: application/json
+
+{
+  "nombre": "Curso de Java Modificado",
+  "descripcion": "Actualización completa del curso usando DTO"
+}
+
+
 
 ### Eliminar un solo curso por ID
 DELETE http://localhost:8080/api/v1/cursos/1

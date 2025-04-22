@@ -2,6 +2,7 @@ package carlos.marcos.cursos.services;
 
 import carlos.marcos.cursos.dto.res.MensajeRespuestaDTO;
 import carlos.marcos.cursos.dto.req.crearCursoConDTO;
+import carlos.marcos.cursos.dto.res.RespuestaCursoDTO;
 import carlos.marcos.cursos.entity.cursoEntity;
 import carlos.marcos.cursos.repository.cursoRepository;
 import org.springframework.stereotype.Service;
@@ -49,12 +50,17 @@ public class cursoService {
 
 
         // Creamos el DTO de respuesta usando el mismo DTO que usamos al inicio para personalizar la respuesta
-        crearCursoConDTO respuesta = new crearCursoConDTO();
+        RespuestaCursoDTO respuesta = new RespuestaCursoDTO();
         respuesta.setNombre(cursoGuardado.getNombre());
         respuesta.setDescripcion(cursoGuardado.getDescripcion());
+        respuesta.setId(cursoGuardado.getId());
 
         // Al final para el DTO respuesta decimos, "mensaje" , "crearCursoConDTO o sea los datos que al inicio pasamos"
-        return new MensajeRespuestaDTO("200 - Curso guardado correctamente", respuesta);
+        return new MensajeRespuestaDTO("El registro Curso fue creado con exito",
+                200,
+                "C:\\Main\\projects\\cursos\\cursos\\src\\main\\java\\carlos\\marcos\\cursos\\services\\cursoService.java",
+                LocalDateTime.now(),
+                respuesta);
     }
 
     public Optional<cursoEntity> actualizarCurso(Long id, cursoEntity cursoActualizado) {
@@ -66,6 +72,27 @@ public class cursoService {
             return cursoRepository.save(curso);
         });
     }
+
+//    public Optional<MensajeRespuestaDTO> actualizarCurso(Long id, crearCursoConDTO cursoDTO) {
+//        return cursoRepository.findById(id).map(curso -> {
+//            curso.setNombre(cursoDTO.getNombre());
+//            curso.setDescripcion(cursoDTO.getDescripcion());
+//
+//            // Mantener fechas anteriores o modificarlas si deseas lógica dinámica
+//            curso.setFecha_de_inicio(LocalDateTime.now()); // O mantener: curso.getFecha_de_inicio()
+//            curso.setFecha_de_fin(LocalDateTime.now().plusDays(30));
+//
+//            cursoEntity actualizado = cursoRepository.save(curso);
+//
+//            crearCursoConDTO respuesta = new crearCursoConDTO();
+//            respuesta.setNombre(actualizado.getNombre());
+//            respuesta.setDescripcion(actualizado.getDescripcion());
+//
+//            return new MensajeRespuestaDTO("200 - Curso actualizado correctamente", respuesta);
+//        });
+//    }
+
+
 
 
     public void eliminarCurso(@PathVariable Long id) {

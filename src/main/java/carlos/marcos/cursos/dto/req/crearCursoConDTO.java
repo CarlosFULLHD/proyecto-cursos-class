@@ -1,6 +1,7 @@
 package carlos.marcos.cursos.dto.req;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 public class crearCursoConDTO {
 

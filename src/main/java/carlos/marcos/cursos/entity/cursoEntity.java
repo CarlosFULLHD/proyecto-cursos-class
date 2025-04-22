@@ -18,7 +18,7 @@ public class cursoEntity {
     @Column(name="nombre", nullable=false, length=50)
     private String nombre;
 
-    @Column(name="descripcion", nullable=false, length=100)
+    @Column(name="descripcion", length=100)
     private String descripcion;
 
 
