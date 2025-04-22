@@ -3,9 +3,9 @@ servidor:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/bd_cursos_online
-    username: usuario_cursos
-    password: clave_cursos
+    url: jdbc:postgresql://localhost:5433/bd_cursos
+    username: marcos
+    password: 12345
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
